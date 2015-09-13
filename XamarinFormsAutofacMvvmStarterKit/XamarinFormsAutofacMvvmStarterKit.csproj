@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="XamarinFormsAutofacMvvmStarterKit.nuspec" />
   </ItemGroup>
   <ItemGroup />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+	<id>$id$</id>
+	<version>$version$</version>
+	<title>$title$</title>
+	<authors>Jay DeBoer</authors>
+	<owners>Jay DeBoer</owners>
+	<projectUrl>https://github.com/jaydeboer/XamarinFormsAutofacMvvmStarterKit</projectUrl>
+	<requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<description>A basic starter kit for building MVVM Xamarin Forms applications using Autofac for dependency injection.</description>
+	<releaseNotes>Version 0.1 Initial Release.</releaseNotes>
+	<copyright>Copyright 2015</copyright>
+	  <dependencies>
+		  <dependency id="AutoFac" version="3.0" />
+		  <dependency id="Xamarin.Forms" version="1.3" />
+	  </dependencies>
+  </metadata>
+</package>
