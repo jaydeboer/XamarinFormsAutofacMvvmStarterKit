@@ -25,7 +25,7 @@ namespace XamarinFormsAutofacMvvmStarterKit
 		public Task<IViewModel> PopAsync()
 		{
 			var tcs = new TaskCompletionSource<IViewModel>();
-			Device.BeginInvokeOnMainThread(async () =>
+			_deviceService.BeginInvokeOnMainThread(async () =>
 			{
 				Page view = await Navigation.PopAsync();
 				tcs.SetResult(view.BindingContext as IViewModel);
@@ -37,7 +37,7 @@ namespace XamarinFormsAutofacMvvmStarterKit
 		public Task<IViewModel> PopModalAsync()
 		{
 			var tcs = new TaskCompletionSource<IViewModel>();
-			Device.BeginInvokeOnMainThread(async () =>
+			_deviceService.BeginInvokeOnMainThread(async () =>
 			{
 				Page view = await Navigation.PopAsync();
 				tcs.SetResult(view.BindingContext as IViewModel);
@@ -48,7 +48,7 @@ namespace XamarinFormsAutofacMvvmStarterKit
 		public Task PopToRootAsync()
 		{
 			var tcs = new TaskCompletionSource<object>();
-			Device.BeginInvokeOnMainThread(async () =>
+			_deviceService.BeginInvokeOnMainThread(async () =>
 			{
 				await Navigation.PopToRootAsync();
 				tcs.SetResult(null);
@@ -60,7 +60,7 @@ namespace XamarinFormsAutofacMvvmStarterKit
 			where TViewModel : class, IViewModel
 		{
 			var tcs = new TaskCompletionSource<TViewModel>();
-			Device.BeginInvokeOnMainThread(async () =>
+			_deviceService.BeginInvokeOnMainThread(async () =>
 			{
 				TViewModel viewModel;
 				var view = _viewFactory.Resolve(out viewModel, setStateAction);
@@ -74,7 +74,7 @@ namespace XamarinFormsAutofacMvvmStarterKit
 			where TViewModel : class, IViewModel
 		{
 			var tcs = new TaskCompletionSource<TViewModel>();
-			Device.BeginInvokeOnMainThread(async () =>
+			_deviceService.BeginInvokeOnMainThread(async () =>
 			{
 				var view = _viewFactory.Resolve(viewModel);
 				await Navigation.PushAsync(view);
@@ -87,7 +87,7 @@ namespace XamarinFormsAutofacMvvmStarterKit
 			where TViewModel : class, IViewModel
 		{
 			var tcs = new TaskCompletionSource<TViewModel>();
-			Device.BeginInvokeOnMainThread(async () =>
+			_deviceService.BeginInvokeOnMainThread(async () =>
 			{
 				TViewModel viewModel;
 				var view = _viewFactory.Resolve<TViewModel>(out viewModel, setStateAction);
@@ -101,7 +101,7 @@ namespace XamarinFormsAutofacMvvmStarterKit
 			where TViewModel : class, IViewModel
 		{
 			var tcs = new TaskCompletionSource<TViewModel>();
-			Device.BeginInvokeOnMainThread(async () =>
+			_deviceService.BeginInvokeOnMainThread(async () =>
 			{
 				var view = _viewFactory.Resolve(viewModel);
 				await Navigation.PushModalAsync(view);

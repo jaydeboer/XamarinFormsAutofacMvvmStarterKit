@@ -6,8 +6,6 @@ namespace XamarinFormsAutofacMvvmStarterKit
 {
 	public abstract class CoreAutofacBootstrapper
 	{
-		public Assembly AutoRegisterAssembly { get; set; }
-
 		public void Run()
 		{
 			var builder = new ContainerBuilder();
@@ -22,13 +20,19 @@ namespace XamarinFormsAutofacMvvmStarterKit
 			ConfigureApplication(container);
 		}
 
+		public CoreAutofacBootstrapper() { }
+		public CoreAutofacBootstrapper(Assembly autoRegisterAssembly)
+		{
+			AutoRegisterAssembly = autoRegisterAssembly;
+		}
+
 		protected virtual void ConfigureContainer(ContainerBuilder builder)
 		{
 			builder.RegisterModule<CoreAutofacModule>();
 			if (AutoRegisterAssembly != null)
 			{
-				builder.RegisterAssemblyTypes(AutoRegisterAssembly).Where(t => t.Namespace != null && t.Namespace.EndsWith(".ViewModels")).AsSelf().InstancePerDependency();
-				builder.RegisterAssemblyTypes(AutoRegisterAssembly).Where(t => t.Namespace != null && t.Namespace.EndsWith(".Views")).AsSelf().InstancePerDependency();
+				builder.RegisterAssemblyTypes(AutoRegisterAssembly).Where(t => t.Namespace != null && t.Namespace.EndsWith(".ViewModels") && t.Name.EndsWith("VM")).AsSelf().InstancePerDependency();
+				builder.RegisterAssemblyTypes(AutoRegisterAssembly).Where(t => t.Namespace != null && t.Namespace.EndsWith(".Views") && t.Name.EndsWith("View")).AsSelf().InstancePerDependency();
 			}
 		}
 
@@ -52,6 +56,9 @@ namespace XamarinFormsAutofacMvvmStarterKit
 		}
 
 		protected abstract void ConfigureApplication(IContainer container);
+
+		private Assembly AutoRegisterAssembly { get; set; }
+
 	}
 }
 

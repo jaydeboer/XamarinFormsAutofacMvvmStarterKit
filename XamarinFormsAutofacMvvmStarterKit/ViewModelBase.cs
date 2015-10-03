@@ -1,13 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Linq.Expressions;
 
 namespace XamarinFormsAutofacMvvmStarterKit
 {
 	public abstract class ViewModelBase : IViewModel
 	{
-		public string Title { get; set; }
+		private string _title;
+
+		public string Title
+		{
+			get { return _title; }
+			set { SetProperty(ref _title, value); }
+		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,10 +41,10 @@ namespace XamarinFormsAutofacMvvmStarterKit
 		}
 
 
-		public virtual void OnAppearing () {	}
+		public virtual void OnAppearing () { }
 		public virtual void OnDisappearing (){ }
-		public void OnPushed (){}
-		public void OnPopped (){}
+		public virtual void OnPushed (){}
+		public virtual void OnPopped (){}
 	}
 }
 

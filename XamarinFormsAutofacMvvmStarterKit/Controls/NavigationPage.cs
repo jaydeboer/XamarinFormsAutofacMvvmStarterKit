@@ -43,7 +43,7 @@
 			if (vm != null)
 			{
 				vm.OnPopped();
-				Xamarin.Forms.MessagingCenter.Send<NavigationPage, IViewModel>(this, "IViewModelPopped", vm);
+				Xamarin.Forms.MessagingCenter.Send(this, "IViewModelPopped", vm);
 			}
 		}
 
