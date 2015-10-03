@@ -1,12 +1,13 @@
 ﻿using Autofac;
 using SampleApp.ViewModels;
+using System.Reflection;
 using XamarinFormsAutofacMvvmStarterKit;
 
 namespace SampleApp
 {
 	public class Bootstrapper : CoreAutofacBootstrapper
 	{
-		public Bootstrapper(Xamarin.Forms.Application app)
+		public Bootstrapper(Xamarin.Forms.Application app, Assembly autoRegisterAssembly) : base(autoRegisterAssembly)
 		{
 			App = app;
 		}
