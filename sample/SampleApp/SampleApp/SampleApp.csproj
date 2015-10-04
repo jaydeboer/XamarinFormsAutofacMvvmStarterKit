@@ -66,8 +66,9 @@
       <HintPath>..\..\packages\Xamarin.Forms.1.5.0.6446\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XamarinFormsAutofacMvvmStarterKit">
-      <HintPath>..\..\..\src\XamarinFormsAutofacMvvmStarterKit\bin\Debug\XamarinFormsAutofacMvvmStarterKit.dll</HintPath>
+    <Reference Include="XamarinFormsAutofacMvvmStarterKit, Version=0.1.5755.38852, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XamarinFormsAutofacMvvmStarterKit.0.1.5755.38852\lib\portable-net45+dnxcore50+win+wp80+MonoAndroid10+xamarinios10+MonoTouch10\XamarinFormsAutofacMvvmStarterKit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

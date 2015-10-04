@@ -18,6 +18,12 @@ namespace SampleApp.ViewModels
 			Message = "This is the first page.";
 		}
 
+
+		public override void OnPopped()
+		{
+			// Dow what you need to in here.
+		}
+
 		private readonly INavigator Navigator;
 	}
 }
