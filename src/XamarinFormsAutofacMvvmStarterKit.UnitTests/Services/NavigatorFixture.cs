@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using Xamarin.Forms;
 using XamarinFormsAutofacMvvmStarterKit.UnitTests.Mocks;
+using System.Threading.Tasks;
 
 namespace XamarinFormsAutofacMvvmStarterKit.UnitTests.Services
 {
@@ -31,21 +32,21 @@ namespace XamarinFormsAutofacMvvmStarterKit.UnitTests.Services
 		}
 
 		[Test]
-		public async void NavigateToView()
+		public async Task NavigateToView()
 		{
 			MockViewModel viewModel = await _navigator.PushAsync<MockViewModel>(_action);
 			Assert.That(viewModel, Is.EqualTo(_viewModel));
 		}
 
 		[Test]
-		public async void NavigateToModalView()
+		public async Task NavigateToModalView()
 		{
 			MockViewModel viewModel = await _navigator.PushModalAsync<MockViewModel>(_action);
 			Assert.That(viewModel, Is.EqualTo(_viewModel));
 		}
 
 		[Test]
-		public async void NavigateFromView()
+		public async Task NavigateFromView()
 		{
 			var viewModel = await _navigator.PopAsync();
 			Assert.That(viewModel, Is.Not.Null);
@@ -53,7 +54,7 @@ namespace XamarinFormsAutofacMvvmStarterKit.UnitTests.Services
 		}
 
 		[Test]
-		public async void NavigateFromModalView()
+		public async Task NavigateFromModalView()
 		{
 			var viewModel = await _navigator.PopModalAsync();
 			Assert.That(viewModel, Is.Not.Null);
@@ -61,7 +62,7 @@ namespace XamarinFormsAutofacMvvmStarterKit.UnitTests.Services
 		}
 
 		[Test]
-		public async void NavigateToRoot()
+		public async Task NavigateToRoot()
 		{
 			var viewModel = await _navigator.PopModalAsync();
 			Assert.That(viewModel, Is.Not.Null);
